@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://kamqvsxntcfy"]
+
+[ext_resource type="Shader" uid="uid://d0g20hi08muw6" path="res://Resources/1-bit.gdshader" id="1_vrqnk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vx5he"]
+shader = ExtResource("1_vrqnk")
+
+[node name="Game" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Background" type="ColorRect" parent="CanvasLayer"]
+offset_right = 640.0
+offset_bottom = 360.0
+color = Color(0, 0, 0, 1)
+
+[node name="ShaderRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_vx5he")
+offset_right = 640.0
+offset_bottom = 360.0

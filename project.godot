@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="B1T Jam 3"
+run/main_scene="uid://cn5f6yumavoep"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GameManager="*res://scripts/autoloads/game_manager.gd"
 
 [display]
 
