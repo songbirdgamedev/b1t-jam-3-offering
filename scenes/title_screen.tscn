@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cn5f6yumavoep"]
+
+[node name="TitleScreen" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_right = 640.0
+offset_bottom = 360.0
+color = Color(0.06053035, 0.06053035, 0.060530342, 1)
