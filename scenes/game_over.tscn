@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://sps7x471n2bo"]
 
-[ext_resource type="Shader" uid="uid://d0g20hi08muw6" path="res://Resources/1-bit.gdshader" id="1_xeevv"]
+[ext_resource type="Shader" uid="uid://d0g20hi08muw6" path="res://resources/1-bit.gdshader" id="1_xeevv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wqhvx"]
 shader = ExtResource("1_xeevv")
@@ -13,6 +13,15 @@ shader = ExtResource("1_xeevv")
 offset_right = 640.0
 offset_bottom = 360.0
 color = Color(0, 0, 0, 1)
+
+[node name="Label" type="RichTextLabel" parent="CanvasLayer/Background"]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 64.0
+offset_right = 512.0
+offset_bottom = 128.0
+bbcode_enabled = true
+text = "[rainbow]hellooo[/rainbow]"
 
 [node name="ShaderRect" type="ColorRect" parent="CanvasLayer"]
 material = SubResource("ShaderMaterial_wqhvx")
