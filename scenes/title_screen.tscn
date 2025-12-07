@@ -18,18 +18,12 @@ offset_right = 320.0
 offset_bottom = 180.0
 color = Color(0.06053035, 0.06053035, 0.060530342, 1)
 
-[node name="PlayButton" type="Button" parent="CanvasLayer/Background"]
-layout_mode = 0
-offset_left = 96.0
-offset_top = 116.0
-offset_right = 224.0
-offset_bottom = 136.0
-theme_override_fonts/font = ExtResource("1_s4lrb")
-theme_override_font_sizes/font_size = 8
-text = "Play"
+[node name="Logo" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(160, 64.00001)
+scale = Vector2(1.4999999, 0.625)
+texture = ExtResource("1_sa3yf")
 
-[node name="OptionsButton" type="Button" parent="CanvasLayer/Background"]
-layout_mode = 0
+[node name="OptionsButton" type="Button" parent="CanvasLayer"]
 offset_left = 96.0
 offset_top = 140.0
 offset_right = 224.0
@@ -38,14 +32,19 @@ theme_override_fonts/font = ExtResource("1_s4lrb")
 theme_override_font_sizes/font_size = 8
 text = "Options"
 
-[node name="Logo" type="Sprite2D" parent="CanvasLayer/Background"]
-position = Vector2(160, 64.00001)
-scale = Vector2(1.4999999, 0.625)
-texture = ExtResource("1_sa3yf")
+[node name="PlayButton" type="Button" parent="CanvasLayer"]
+offset_left = 96.0
+offset_top = 116.0
+offset_right = 224.0
+offset_bottom = 136.0
+theme_override_fonts/font = ExtResource("1_s4lrb")
+theme_override_font_sizes/font_size = 8
+text = "Play"
 
 [node name="ShaderRect" type="ColorRect" parent="CanvasLayer"]
 material = SubResource("ShaderMaterial_sa3yf")
 offset_right = 320.0
 offset_bottom = 180.0
+mouse_behavior_recursive = 1
 
-[connection signal="pressed" from="CanvasLayer/Background/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/PlayButton" to="." method="_on_play_button_pressed"]

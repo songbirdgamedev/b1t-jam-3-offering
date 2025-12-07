@@ -18,3 +18,4 @@ color = Color(0, 0, 0, 1)
 material = SubResource("ShaderMaterial_wqhvx")
 offset_right = 320.0
 offset_bottom = 180.0
+mouse_behavior_recursive = 1

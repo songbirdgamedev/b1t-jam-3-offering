@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://kamqvsxntcfy"]
+[gd_scene load_steps=4 format=3 uid="uid://kamqvsxntcfy"]
 
 [ext_resource type="Shader" uid="uid://d0g20hi08muw6" path="res://resources/1-bit.gdshader" id="1_vrqnk"]
+[ext_resource type="PackedScene" path="res://scenes/text_box.tscn" id="1_vx5he"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vx5he"]
 shader = ExtResource("1_vrqnk")
@@ -14,7 +15,11 @@ offset_right = 320.0
 offset_bottom = 180.0
 color = Color(0, 0, 0, 1)
 
+[node name="TextBox" parent="CanvasLayer" instance=ExtResource("1_vx5he")]
+offset_top = -50.0
+
 [node name="ShaderRect" type="ColorRect" parent="CanvasLayer"]
 material = SubResource("ShaderMaterial_vx5he")
 offset_right = 320.0
 offset_bottom = 180.0
+mouse_behavior_recursive = 1
