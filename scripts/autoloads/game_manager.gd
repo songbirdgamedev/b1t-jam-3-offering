@@ -9,4 +9,4 @@ var money: int = 100
 var king_approval: int = 20
 var deity_approval: int = 50
 var winter_intensity: float = 50
-var allied_soldiers: bool = false
+var allied_soldiers: bool = false 
