@@ -1,0 +1,82 @@
+[gd_scene load_steps=10 format=3 uid="uid://djqjeafm2o7ae"]
+
+[ext_resource type="Shader" uid="uid://d0g20hi08muw6" path="res://resources/1-bit.gdshader" id="1_6617h"]
+[ext_resource type="Texture2D" uid="uid://brtumap3w2vj3" path="res://assets/sprites/king.png" id="1_ugbkg"]
+[ext_resource type="PackedScene" uid="uid://c844pkcuoapm0" path="res://scenes/text_box.tscn" id="2_4swvt"]
+[ext_resource type="PackedScene" uid="uid://fe347kyj24xi" path="res://scenes/decision_button.tscn" id="3_e23qt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w3s3v"]
+atlas = ExtResource("1_ugbkg")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_27a5e"]
+atlas = ExtResource("1_ugbkg")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iahoj"]
+atlas = ExtResource("1_ugbkg")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yc706"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"elders",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w3s3v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_27a5e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iahoj")
+}],
+"loop": true,
+"name": &"king request",
+"speed": 5.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5ne8h"]
+shader = ExtResource("1_6617h")
+
+[node name="Decision" type="CanvasLayer"]
+
+[node name="Background" type="ColorRect" parent="."]
+offset_right = 320.0
+offset_bottom = 180.0
+color = Color(0, 0, 0, 1)
+
+[node name="Requester" type="AnimatedSprite2D" parent="."]
+position = Vector2(160, 116)
+sprite_frames = SubResource("SpriteFrames_yc706")
+animation = &"king request"
+autoplay = "king request"
+frame = 1
+frame_progress = 0.7259105
+
+[node name="TextBox" parent="." instance=ExtResource("2_4swvt")]
+offset_left = -4.0
+offset_top = -172.0
+offset_right = -4.0
+offset_bottom = -122.0
+
+[node name="Decision1" parent="." instance=ExtResource("3_e23qt")]
+position = Vector2(4, 64)
+
+[node name="Decision2" parent="." instance=ExtResource("3_e23qt")]
+position = Vector2(220, 64)
+
+[node name="Decision3" parent="." instance=ExtResource("3_e23qt")]
+position = Vector2(4, 128)
+
+[node name="Decision4" parent="." instance=ExtResource("3_e23qt")]
+position = Vector2(220, 128)
+
+[node name="ShaderRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_5ne8h")
+offset_right = 320.0
+offset_bottom = 180.0
+mouse_behavior_recursive = 1
