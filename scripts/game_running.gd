@@ -46,6 +46,7 @@ func _on_decision_decision_made() -> void:
 		animation_player.play("decision_to_dialogue")
 		await animation_player.animation_finished
 		dialogue.show_dialogue(TextManager.get_text(), TextManager.get_character())
+		scenario_count = 0
 	else:
 		scenario_count += 1
 		animation_player.play("decision_to_decision")
