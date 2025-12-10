@@ -21,6 +21,7 @@ GameManager="*res://scripts/autoloads/game_manager.gd"
 LevelManager="*res://scripts/autoloads/level_manager.gd"
 TextManager="*res://scripts/autoloads/text_manager.gd"
 ScenarioManager="*res://scripts/autoloads/scenario_manager.gd"
+AudioManager="*res://scenes/autoloads/audio_manager.tscn"
 
 [display]
 

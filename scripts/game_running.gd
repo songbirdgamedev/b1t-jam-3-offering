@@ -19,7 +19,14 @@ func _ready() -> void:
 
 
 func _on_dialogue_dialogue_finished() -> void:
-	animation_player.play("dialogue_to_decision")
+	if GameManager.weeks_left < 0:
+		end_game()
+	else:
+		animation_player.play("dialogue_to_decision")
+
+
+func end_game() -> void:
+	LevelManager.restart_game()
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
@@ -30,4 +37,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 
 func _on_decision_decision_made() -> void:
 	time_left.set_text()
+	TextManager.set_current()
 	animation_player.play("decision_to_dialogue")
+	await animation_player.animation_finished
+	dialogue.show_dialogue(TextManager.get_text(), TextManager.get_character())

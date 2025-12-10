@@ -22,6 +22,8 @@ func show_dialogue(lines: Array[String], speaker: int) -> void:
 			requester.play("jeremy")
 		Character.KING:
 			requester.play("king")
+		Character.DEITY:
+			requester.play("deity")
 	for line in lines:
 		text_box.queue_text(line)
 

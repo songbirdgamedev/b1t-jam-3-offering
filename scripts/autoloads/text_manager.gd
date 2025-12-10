@@ -21,6 +21,7 @@ var intro: TextCharacter
 var early: Array[TextCharacter]
 var mid: Array[TextCharacter]
 var late: Array[TextCharacter]
+var end: TextCharacter
 var current: TextCharacter
 
 
@@ -45,9 +46,82 @@ func set_text() -> void:
 			"This is a second test dialogue for the early game.",
 			"Let's see if it works."
 		],
-		Character.KING)
+		Character.KING),
+		TextCharacter.new([
+			"Hi " + GameManager.player_name + ", that decision was pretty easy I bet. I think you're up for something a bit harder.",
+			"Good luck!"
+		],
+		Character.JEREMY),
 	]
+	mid = [
+		TextCharacter.new([
+			"Hi " + GameManager.player_name + ", that decision was pretty easy I bet. I think you're up for something a bit harder.",
+			"Good luck!"
+		],
+		Character.JEREMY),
+		TextCharacter.new([
+			"This is a second test dialogue for the early game.",
+			"Let's see if it works."
+		],
+		Character.KING),
+		TextCharacter.new([
+			"Hi " + GameManager.player_name + ", that decision was pretty easy I bet. I think you're up for something a bit harder.",
+			"Good luck!"
+		],
+		Character.JEREMY),
+		TextCharacter.new([
+			"Hi " + GameManager.player_name + ", that decision was pretty easy I bet. I think you're up for something a bit harder.",
+			"Good luck!"
+		],
+		Character.JEREMY),
+	]
+	late = [
+		TextCharacter.new([
+			"Hi " + GameManager.player_name + ", that decision was pretty easy I bet. I think you're up for something a bit harder.",
+			"Good luck!"
+		],
+		Character.JEREMY),
+		TextCharacter.new([
+			"This is a second test dialogue for the early game.",
+			"Let's see if it works."
+		],
+		Character.KING),
+		TextCharacter.new([
+			"Hi " + GameManager.player_name + ", that decision was pretty easy I bet. I think you're up for something a bit harder.",
+			"Good luck!"
+		],
+		Character.JEREMY),
+		TextCharacter.new([
+			"Hi " + GameManager.player_name + ", that decision was pretty easy I bet. I think you're up for something a bit harder.",
+			"Good luck!"
+		],
+		Character.JEREMY),
+	]
+	end = TextCharacter.new([
+		"Thanks for playing, " + GameManager.player_name,
+	],
+	Character.DEITY)
 
 
-func set_current(text: TextCharacter) -> void:
-	current = text
+func set_current() -> void:
+	var weeks = GameManager.weeks_left
+	var list: Array[TextCharacter]
+	if weeks < 0:
+		current = end
+		return
+	if weeks >= 6:
+		list = early
+	elif weeks >= 3:
+		list = mid
+	else:
+		list = late
+	list.shuffle()
+	current =  list.pop_back()
+
+
+func get_text() -> Array[String]:
+	return current.text
+
+
+func get_character() -> int:
+	return current.character
