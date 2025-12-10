@@ -1,41 +1,63 @@
-[gd_scene load_steps=8 format=3 uid="uid://d3alufwghkqoq"]
+[gd_scene load_steps=12 format=3 uid="uid://d3alufwghkqoq"]
 
 [ext_resource type="Texture2D" uid="uid://brtumap3w2vj3" path="res://assets/sprites/king.png" id="1_3n4vj"]
 [ext_resource type="Script" uid="uid://dmj6d1wo86v2r" path="res://scripts/dialogue.gd" id="1_bfpow"]
 [ext_resource type="PackedScene" uid="uid://c844pkcuoapm0" path="res://scenes/text_box.tscn" id="1_jwyou"]
+[ext_resource type="Texture2D" uid="uid://blmcon41pobel" path="res://assets/sprites/Jeremy.png" id="2_fyky8"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_w3s3v"]
-atlas = ExtResource("1_3n4vj")
+[sub_resource type="AtlasTexture" id="AtlasTexture_led2e"]
+atlas = ExtResource("2_fyky8")
 region = Rect2(0, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_27a5e"]
-atlas = ExtResource("1_3n4vj")
+[sub_resource type="AtlasTexture" id="AtlasTexture_vogiq"]
+atlas = ExtResource("2_fyky8")
 region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x1cjp"]
+atlas = ExtResource("2_fyky8")
+region = Rect2(256, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iahoj"]
 atlas = ExtResource("1_3n4vj")
 region = Rect2(256, 0, 128, 128)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_27a5e"]
+atlas = ExtResource("1_3n4vj")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w3s3v"]
+atlas = ExtResource("1_3n4vj")
+region = Rect2(0, 0, 128, 128)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_bfpow"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_led2e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vogiq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x1cjp")
+}],
 "loop": true,
-"name": &"elders",
-"speed": 5.0
+"name": &"jeremy",
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_w3s3v")
+"texture": SubResource("AtlasTexture_iahoj")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_27a5e")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_iahoj")
+"texture": SubResource("AtlasTexture_w3s3v")
 }],
 "loop": true,
-"name": &"king request",
-"speed": 5.0
+"name": &"king",
+"speed": 8.0
 }]
 
 [node name="Dialogue" type="CanvasLayer"]
@@ -49,10 +71,12 @@ color = Color(0, 0, 0, 1)
 [node name="Requester" type="AnimatedSprite2D" parent="."]
 position = Vector2(160, 66)
 sprite_frames = SubResource("SpriteFrames_bfpow")
-animation = &"king request"
-autoplay = "king request"
+animation = &"jeremy"
+autoplay = "jeremy"
 
 [node name="TextBox" parent="." instance=ExtResource("1_jwyou")]
 offset_top = -50.0
 
+[connection signal="reading" from="TextBox" to="." method="_on_text_box_reading"]
+[connection signal="text_finished" from="TextBox" to="." method="_on_text_box_text_finished"]
 [connection signal="textbox_closed" from="TextBox" to="." method="_on_text_box_textbox_closed"]

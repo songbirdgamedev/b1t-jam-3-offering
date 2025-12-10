@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://kamqvsxntcfy"]
+[gd_scene load_steps=11 format=3 uid="uid://kamqvsxntcfy"]
 
 [ext_resource type="Script" uid="uid://du0dfejnvmre2" path="res://scripts/game_running.gd" id="1_bqy44"]
 [ext_resource type="Shader" uid="uid://d0g20hi08muw6" path="res://resources/1-bit.gdshader" id="1_vrqnk"]
@@ -49,6 +49,42 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_g3a6y"]
 resource_name = "decision_to_dialogue"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FadeRect:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(320, 0), Vector2(320, 180), Vector2(320, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Decision:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Dialogue:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
 
 [sub_resource type="Animation" id="Animation_ie5wa"]
 resource_name = "dialogue_to_decision"
@@ -89,11 +125,28 @@ tracks/2/keys = {
 "values": [false, true]
 }
 
+[sub_resource type="Animation" id="Animation_rh7os"]
+resource_name = "start"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FadeRect:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(320, 180), Vector2(320, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rh7os"]
 _data = {
 &"RESET": SubResource("Animation_diwep"),
 &"decision_to_dialogue": SubResource("Animation_g3a6y"),
-&"dialogue_to_decision": SubResource("Animation_ie5wa")
+&"dialogue_to_decision": SubResource("Animation_ie5wa"),
+&"start": SubResource("Animation_rh7os")
 }
 
 [node name="Game" type="CanvasLayer"]

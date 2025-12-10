@@ -11,3 +11,8 @@ var stats: Dictionary = {
 	"winter_intensity": 50
 }
 var weeks_left: int = 9
+
+
+func change_name(name: String) -> void:
+	player_name = name
+	TextManager.set_text()

@@ -8,7 +8,9 @@ extends CanvasLayer
 
 
 func _ready() -> void:
-	dialogue.show_dialogue(TextManager.intro)
+	# animation_player.play("start")
+	
+	dialogue.show_dialogue(TextManager.intro.lines, TextManager.intro.character)
 	decision.visible = false
 
 

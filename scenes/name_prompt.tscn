@@ -1,0 +1,92 @@
+[gd_scene load_steps=7 format=3 uid="uid://bank4v6qyjhcx"]
+
+[ext_resource type="FontFile" uid="uid://d2avfcn8sbdrt" path="res://assets/Kenney Mini Square.ttf" id="1_0omd3"]
+[ext_resource type="Shader" uid="uid://d0g20hi08muw6" path="res://resources/1-bit.gdshader" id="1_0xlp0"]
+[ext_resource type="Script" uid="uid://w35l2pqc418c" path="res://scripts/name_prompt.gd" id="1_fhrbs"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0omd3"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.1254902)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fhrbs"]
+bg_color = Color(0.103743516, 0.103743546, 0.10374347, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0omd3"]
+shader = ExtResource("1_0xlp0")
+
+[node name="NamePrompt" type="CanvasLayer"]
+script = ExtResource("1_fhrbs")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 320.0
+offset_bottom = 180.0
+color = Color(0, 0, 0, 1)
+
+[node name="InputArea" type="ColorRect" parent="."]
+visible = false
+offset_left = 119.0
+offset_top = 87.0
+offset_right = 209.0
+offset_bottom = 109.0
+
+[node name="NameInput" type="LineEdit" parent="."]
+offset_left = 116.0
+offset_top = 88.0
+offset_right = 204.0
+offset_bottom = 108.0
+theme_override_fonts/font = ExtResource("1_0omd3")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_0omd3")
+max_length = 10
+caret_blink = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = 88.0
+offset_top = 40.0
+offset_right = 232.0
+offset_bottom = 64.0
+theme_override_fonts/font = ExtResource("1_0omd3")
+text = "Enter your name"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+offset_left = 128.0
+offset_top = 128.0
+offset_right = 192.0
+offset_bottom = 156.0
+theme_override_fonts/font = ExtResource("1_0omd3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_fhrbs")
+text = "Enter"
+
+[node name="ShaderRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_0omd3")
+offset_right = 320.0
+offset_bottom = 180.0
+mouse_behavior_recursive = 1
+
+[connection signal="text_submitted" from="NameInput" to="." method="_on_name_input_text_submitted"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

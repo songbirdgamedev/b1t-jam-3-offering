@@ -21,6 +21,7 @@ var duration: float
 
 signal textbox_closed
 signal text_finished
+signal reading
 
 
 func _ready() -> void:
@@ -67,6 +68,7 @@ func _display_text() -> void:
 
 	label.text = next_text
 	label.visible_ratio = 0.0
+	reading.emit()
 	_change_state(State.READING)
 	_show_text_box()
 
