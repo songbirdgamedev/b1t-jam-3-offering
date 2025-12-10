@@ -28,7 +28,9 @@ func set_scenario() -> void:
 
 func _on_text_box_text_finished() -> void:
 	buttons.show()
+	text_box.process_mode = Node.PROCESS_MODE_DISABLED
 
 
 func _on_decision_button_pressed() -> void:
 	decision_made.emit()
+	text_box.process_mode = Node.PROCESS_MODE_ALWAYS

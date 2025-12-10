@@ -11,8 +11,13 @@ var stats: Dictionary = {
 	"winter_intensity": 50
 }
 var weeks_left: int = 9
+var prev_stats: Dictionary
 
 
-func change_name(name: String) -> void:
-	player_name = name
+func _ready() -> void:
+	prev_stats = stats
+
+
+func change_name(n: String) -> void:
+	player_name = n
 	TextManager.set_text()
