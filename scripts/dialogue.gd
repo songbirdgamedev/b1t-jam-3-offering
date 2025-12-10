@@ -24,11 +24,13 @@ func show_dialogue(lines: Array[String], speaker: int) -> void:
 			requester.play("king")
 		Character.DEITY:
 			requester.play("deity")
+	requester.show()
 	for line in lines:
 		text_box.queue_text(line)
 
 
 func _on_text_box_textbox_closed() -> void:
+	requester.hide()
 	dialogue_finished.emit()
 
 

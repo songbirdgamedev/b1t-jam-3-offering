@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://fe347kyj24xi"]
+[gd_scene load_steps=6 format=3 uid="uid://fe347kyj24xi"]
 
 [ext_resource type="Script" uid="uid://d6u0p8lvdojl" path="res://scripts/decision_button.gd" id="1_1u7lj"]
 [ext_resource type="FontFile" uid="uid://d2avfcn8sbdrt" path="res://assets/fonts/Kenney Mini Square.ttf" id="1_pq7yr"]
@@ -9,10 +9,28 @@ content_margin_top = 2.0
 content_margin_right = 2.0
 content_margin_bottom = 2.0
 bg_color = Color(0, 0, 0, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lxfsw"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ku2ls"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0.029506553, 0.029506562, 0.029506536, 1)
 corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
@@ -22,6 +40,10 @@ corner_radius_bottom_left = 3
 script = ExtResource("1_1u7lj")
 metadata/_edit_group_ = true
 
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 128.0
+offset_bottom = 40.0
+
 [node name="Button" type="Button" parent="."]
 offset_left = 1.0
 offset_top = 1.0
@@ -30,6 +52,8 @@ offset_bottom = 39.0
 theme_override_fonts/font = ExtResource("1_pq7yr")
 theme_override_font_sizes/font_size = 8
 theme_override_styles/normal = SubResource("StyleBoxFlat_1u7lj")
+theme_override_styles/hover = SubResource("StyleBoxFlat_lxfsw")
+theme_override_styles/focus = SubResource("StyleBoxFlat_ku2ls")
 text = "Example
 text"
 autowrap_mode = 3
