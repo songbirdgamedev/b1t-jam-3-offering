@@ -1,25 +1,124 @@
-[gd_scene load_steps=4 format=3 uid="uid://kamqvsxntcfy"]
+[gd_scene load_steps=10 format=3 uid="uid://kamqvsxntcfy"]
 
+[ext_resource type="Script" uid="uid://du0dfejnvmre2" path="res://scripts/game_running.gd" id="1_bqy44"]
 [ext_resource type="Shader" uid="uid://d0g20hi08muw6" path="res://resources/1-bit.gdshader" id="1_vrqnk"]
-[ext_resource type="PackedScene" path="res://scenes/text_box.tscn" id="1_vx5he"]
+[ext_resource type="PackedScene" uid="uid://djqjeafm2o7ae" path="res://scenes/decision.tscn" id="2_g3a6y"]
+[ext_resource type="PackedScene" uid="uid://d3alufwghkqoq" path="res://scenes/dialogue.tscn" id="2_ie5wa"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vx5he"]
 shader = ExtResource("1_vrqnk")
 
-[node name="Game" type="Node2D"]
+[sub_resource type="Animation" id="Animation_diwep"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FadeRect:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(320, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Dialogue:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Decision:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[sub_resource type="Animation" id="Animation_g3a6y"]
+resource_name = "decision_to_dialogue"
 
-[node name="Background" type="ColorRect" parent="CanvasLayer"]
+[sub_resource type="Animation" id="Animation_ie5wa"]
+resource_name = "dialogue_to_decision"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FadeRect:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(320, 0), Vector2(320, 180), Vector2(320, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Dialogue:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Decision:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rh7os"]
+_data = {
+&"RESET": SubResource("Animation_diwep"),
+&"decision_to_dialogue": SubResource("Animation_g3a6y"),
+&"dialogue_to_decision": SubResource("Animation_ie5wa")
+}
+
+[node name="Game" type="CanvasLayer"]
+script = ExtResource("1_bqy44")
+
+[node name="Dialogue" parent="." instance=ExtResource("2_ie5wa")]
+layer = 0
+
+[node name="Decision" parent="." instance=ExtResource("2_g3a6y")]
+layer = 0
+
+[node name="FadeRect" type="ColorRect" parent="."]
 offset_right = 320.0
-offset_bottom = 180.0
 color = Color(0, 0, 0, 1)
 
-[node name="TextBox" parent="CanvasLayer" instance=ExtResource("1_vx5he")]
-offset_top = -50.0
-
-[node name="ShaderRect" type="ColorRect" parent="CanvasLayer"]
+[node name="ShaderRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_vx5he")
 offset_right = 320.0
 offset_bottom = 180.0
 mouse_behavior_recursive = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_rh7os")
+}
+
+[connection signal="dialogue_finished" from="Dialogue" to="." method="_on_dialogue_dialogue_finished"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

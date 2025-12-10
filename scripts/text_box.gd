@@ -1,3 +1,4 @@
+class_name TextBox
 extends MarginContainer
 
 
@@ -5,7 +6,7 @@ extends MarginContainer
 @onready var end: Label = $Panel/MarginContainer/HBoxContainer/End
 @onready var label: RichTextLabel = $Panel/MarginContainer/HBoxContainer/RichTextLabel
 
-const CHAR_READ_RATE = 0.05
+const CHAR_READ_RATE = 0.04
 
 enum State {
 	READY,
@@ -17,6 +18,9 @@ var current_state: State = State.READY
 var text_queue: Array[String] = []
 var text_tween: Tween
 var duration: float
+
+signal textbox_closed
+signal text_finished
 
 
 func _ready() -> void:
@@ -37,6 +41,7 @@ func _process(_delta: float) -> void:
 			if Input.is_action_just_pressed("confirm"):
 				_change_state(State.READY)
 				if text_queue.is_empty():
+					textbox_closed.emit()
 					_hide_text_box()
 
 
@@ -73,6 +78,7 @@ func _display_text() -> void:
 
 func _on_text_finished() -> void:
 	end.text = "+"
+	text_finished.emit()
 	_change_state(State.FINISHED)
 
 
