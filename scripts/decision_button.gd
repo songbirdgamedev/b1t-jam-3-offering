@@ -2,7 +2,7 @@ class_name DecisionButton
 extends Node2D
 
 
-@onready var button: Button = $ColorRect/Button
+@onready var button: Button = $Button
 var result: Dictionary
 
 signal button_pressed

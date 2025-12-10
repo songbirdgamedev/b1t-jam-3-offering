@@ -118,7 +118,7 @@ color = Color(0, 0, 0, 1)
 [node name="Requester" type="AnimatedSprite2D" parent="."]
 position = Vector2(160, 66)
 sprite_frames = SubResource("SpriteFrames_bfpow")
-animation = &"nobody"
+animation = &"deity"
 autoplay = "jeremy"
 
 [node name="TextBox" parent="." instance=ExtResource("1_jwyou")]

@@ -21,3 +21,4 @@ func _ready() -> void:
 func change_name(n: String) -> void:
 	player_name = n
 	TextManager.set_text()
+	ScenarioManager.set_scenarios()

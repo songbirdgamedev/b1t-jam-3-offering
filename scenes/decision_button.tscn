@@ -4,19 +4,25 @@
 [ext_resource type="FontFile" uid="uid://d2avfcn8sbdrt" path="res://assets/Kenney Mini Square.ttf" id="1_pq7yr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1u7lj"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
 bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
 
 [node name="DecisionButton" type="Node2D"]
 script = ExtResource("1_1u7lj")
 metadata/_edit_group_ = true
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 128.0
-offset_bottom = 40.0
-metadata/_edit_group_ = true
-
-[node name="Button" type="Button" parent="ColorRect"]
-layout_mode = 0
+[node name="Button" type="Button" parent="."]
 offset_left = 1.0
 offset_top = 1.0
 offset_right = 127.0
@@ -26,5 +32,6 @@ theme_override_font_sizes/font_size = 8
 theme_override_styles/normal = SubResource("StyleBoxFlat_1u7lj")
 text = "Example
 text"
+autowrap_mode = 3
 
-[connection signal="pressed" from="ColorRect/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
