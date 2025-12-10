@@ -46,6 +46,8 @@ func set_text() -> void:
 	late = [
 		TextCharacter.new([
 			GameManager.player_name + "... I know you can hear me.",
+			"Your village is relying on you to guide them through the winter... As I have seen so many guide this little village before you...",
+			"the offerings left by generations living here has always kept the people safe, it is my hope that you will continue such traditions, for the sake of the forest, and the people who rely on it..."
 		],
 		Character.DEITY)
 	]
@@ -60,6 +62,16 @@ func set_current() -> void:
 	var list: Array[TextCharacter]
 	if weeks < 0:
 		current = end
+		var stats = [GameManager.stats["village_approval"], GameManager.stats["king_approval"], GameManager.stats["deity_approval"]]
+		if stats[0] > stats[1] and stats[0] > stats[2]:
+			current.character = Character.JEREMY
+			current.text = ["The village has had a hard winter but we made it through thanks to your hard work!"]
+		elif stats[1] > stats[2]:
+			current.character = Character.KING
+			current.text = ["It's a shame your village didn't do so well but I'd like to offer you a new job in the capital."]
+		else:
+			current.character = Character.DEITY
+			current.text = ["Your devotion has been rewarded, your village will be safe this winter."]
 		return
 	if weeks >= 1:
 		list = mid
