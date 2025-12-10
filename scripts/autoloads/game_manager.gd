@@ -10,7 +10,7 @@ var stats: Dictionary = {
 	"deity_approval": 30,
 	"winter_intensity": 50
 }
-var weeks_left: int = 9
+var weeks_left: int = 3
 var prev_stats: Dictionary
 
 

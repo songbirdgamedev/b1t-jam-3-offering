@@ -8,6 +8,9 @@ extends CanvasLayer
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 
+var scenario_count: int = 0
+
+
 func _ready() -> void:
 	decision.visible = false
 	dialogue.visible = false
@@ -37,8 +40,14 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 
 
 func _on_decision_decision_made() -> void:
-	time_left.set_text()
-	TextManager.set_current()
-	animation_player.play("decision_to_dialogue")
-	await animation_player.animation_finished
-	dialogue.show_dialogue(TextManager.get_text(), TextManager.get_character())
+	if scenario_count == 2:
+		time_left.set_text()
+		TextManager.set_current()
+		animation_player.play("decision_to_dialogue")
+		await animation_player.animation_finished
+		dialogue.show_dialogue(TextManager.get_text(), TextManager.get_character())
+	else:
+		scenario_count += 1
+		animation_player.play("decision_to_decision")
+		await animation_player.animation_finished
+		decision.set_scenario()

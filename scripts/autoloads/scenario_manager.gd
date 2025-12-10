@@ -176,9 +176,9 @@ func set_scenarios() -> void:
 func get_scenario() -> Scenario:
 	var weeks = GameManager.weeks_left
 	var list: Array[Scenario]
-	if weeks >= 6:
+	if weeks >= 2:
 		list = early
-	elif weeks >= 3:
+	elif weeks >= 1:
 		list = mid
 	else:
 		list = late

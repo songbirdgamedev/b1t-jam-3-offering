@@ -192,15 +192,27 @@ tracks/2/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_rh7os"]
-resource_name = "weeks_left"
+resource_name = "decision_to_decision"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FadeRect:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(320, 0), Vector2(320, 180), Vector2(320, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rh7os"]
 _data = {
 &"RESET": SubResource("Animation_diwep"),
+&"decision_to_decision": SubResource("Animation_rh7os"),
 &"decision_to_dialogue": SubResource("Animation_g3a6y"),
 &"dialogue_to_decision": SubResource("Animation_ie5wa"),
-&"start": SubResource("Animation_ksco0"),
-&"weeks_left": SubResource("Animation_rh7os")
+&"start": SubResource("Animation_ksco0")
 }
 
 [node name="Game" type="CanvasLayer"]

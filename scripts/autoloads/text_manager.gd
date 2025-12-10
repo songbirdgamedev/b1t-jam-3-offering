@@ -36,66 +36,18 @@ func set_text() -> void:
 		"Anyway, I'll let you get to work. There's some papers on the table for you to sort through. Lots of requests from the townsfolk. I trust you'll make the right decisions."
 	], 
 	Character.JEREMY)
-	early = [
-		TextCharacter.new([
-			"Hi " + GameManager.player_name + ", that decision was pretty easy I bet. I think you're up for something a bit harder.",
-			"Good luck!"
-		],
-		Character.JEREMY),
-		TextCharacter.new([
-			"This is a second test dialogue for the early game.",
-			"Let's see if it works."
-		],
-		Character.KING),
-		TextCharacter.new([
-			"Hi " + GameManager.player_name + ", that decision was pretty easy I bet. I think you're up for something a bit harder.",
-			"Good luck!"
-		],
-		Character.JEREMY),
-	]
 	mid = [
 		TextCharacter.new([
-			"Hi " + GameManager.player_name + ", that decision was pretty easy I bet. I think you're up for something a bit harder.",
-			"Good luck!"
+			"Ho there, lowly villager! I am your king. I have come to see the person in charge around here.",
+			"Oh... that's you, is it? I rather expected someone more... put together, perhaps somebody who had taken a bath in the past six months.",
 		],
-		Character.JEREMY),
-		TextCharacter.new([
-			"This is a second test dialogue for the early game.",
-			"Let's see if it works."
-		],
-		Character.KING),
-		TextCharacter.new([
-			"Hi " + GameManager.player_name + ", that decision was pretty easy I bet. I think you're up for something a bit harder.",
-			"Good luck!"
-		],
-		Character.JEREMY),
-		TextCharacter.new([
-			"Hi " + GameManager.player_name + ", that decision was pretty easy I bet. I think you're up for something a bit harder.",
-			"Good luck!"
-		],
-		Character.JEREMY),
+		Character.KING)
 	]
 	late = [
 		TextCharacter.new([
-			"Hi " + GameManager.player_name + ", that decision was pretty easy I bet. I think you're up for something a bit harder.",
-			"Good luck!"
+			GameManager.player_name + "... I know you can hear me.",
 		],
-		Character.JEREMY),
-		TextCharacter.new([
-			"This is a second test dialogue for the early game.",
-			"Let's see if it works."
-		],
-		Character.KING),
-		TextCharacter.new([
-			"Hi " + GameManager.player_name + ", that decision was pretty easy I bet. I think you're up for something a bit harder.",
-			"Good luck!"
-		],
-		Character.JEREMY),
-		TextCharacter.new([
-			"Hi " + GameManager.player_name + ", that decision was pretty easy I bet. I think you're up for something a bit harder.",
-			"Good luck!"
-		],
-		Character.JEREMY),
+		Character.DEITY)
 	]
 	end = TextCharacter.new([
 		"Thanks for playing, " + GameManager.player_name,
@@ -109,12 +61,12 @@ func set_current() -> void:
 	if weeks < 0:
 		current = end
 		return
-	if weeks >= 6:
-		list = early
-	elif weeks >= 3:
+	if weeks >= 1:
 		list = mid
-	else:
+	elif weeks >= 0:
 		list = late
+	else:
+		list = [intro]
 	list.shuffle()
 	current =  list.pop_back()
 

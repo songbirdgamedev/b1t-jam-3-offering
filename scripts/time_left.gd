@@ -10,7 +10,7 @@ var weeks: int
 func set_text() -> void:
 	weeks = GameManager.weeks_left
 	if weeks == 2:
-		label.text = "[shake]" + str(weeks)  + " weeks until winter..."
+		label.text = str(weeks)  + " weeks until winter..."
 	elif weeks == 1:
 		label.text = "[shake]" + str(weeks)  + " week until winter..."
 	elif weeks == 0:
