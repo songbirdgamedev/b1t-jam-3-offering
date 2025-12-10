@@ -26,6 +26,7 @@ func _on_dialogue_dialogue_finished() -> void:
 
 
 func end_game() -> void:
+	AudioManager.stop_music()
 	LevelManager.restart_game()
 
 

@@ -14,188 +14,138 @@ func set_scenarios() -> void:
 	early = [
 		Scenario.new("Dear " + GameManager.player_name + ", we humbly request some supplies from the stores for an offering to the forest. The chill of winter will be bitter without them. -Village Elders", [
 			Option.new("Give the elders a veritable bounty from the stores", {
-				"village_approval": 5
-			}),
-			Option.new("allow the elders to choose plenty from the best of the supplies", {
-				"village_approval": -1
+				"village_approval": -10,
+				"deity_approval": 30
 			}),
 			Option.new("Allow the elders to choose some food that's past its best", {
-				"village_approval": 50
+				"village_approval": -5,
+				"deity_approval": 10
 			}),
-			Option.new("Allow the elders to choose a small amount from the supplies", {
-				"village_approval": -10
-			}),
-			Option.new("Ignore the elders' request entirely", {
-				"village_approval": 10
+			Option.new("Lavish the forest shrine with offerings from your personal store", {
+				"village_approval": 10,
+				"deity_approval": 30
 			}),
 			Option.new("Tell the elders that the village needs those supplies for winter", {
-				"village_approval": 55
+				"village_approval": 20,
+				"deity_approval": -20
 			})
 		]),
-		Scenario.new("You need to test a scenaritwo!", [
-			Option.new("test one", {
+		Scenario.new("Please help! The roads into town are overgrown with brambles, we can't get any supplies in from the capital, and our merchants have no way to sell their wares. -The Merchant's Guild", [
+			Option.new("Choose some villagers to clear the roads and supervise the project", {
 				"village_approval": 5
 			}),
-			Option.new("test two", {
+			Option.new("Tell the merchants to hire someone to do the job, you're too busy", {
 				"village_approval": -1
 			}),
-			Option.new("test three", {
+			Option.new("Send a messenger to the nearest barracks, asking the king's men for help", {
 				"village_approval": 50
 			}),
-			Option.new("test four", {
+			Option.new("Pray to the goddess of the forest to stop the brambles from growing", {
 				"village_approval": -10
-			}),
-			Option.new("test five", {
-				"village_approval": 10
-			}),
-			Option.new("test six", {
-				"village_approval": 55
 			})
 		]),
-		Scenario.new("You need to test a scenario 3!", [
-			Option.new("test one", {
+		Scenario.new("To whom it may concern, as I'm sure you are aware, taxes will be due soon. It may be prudent to remind the people of your village of their responsibilities to their king.", [
+			Option.new("Gather the people in the square and announce they must pay the tax", {
 				"village_approval": 5
 			}),
-			Option.new("test two", {
+			Option.new("Send a message back to the king asking what he means", {
 				"village_approval": -1
 			}),
-			Option.new("test three", {
+			Option.new("Send a message back explaining that your people are too poor to pay", {
 				"village_approval": 50
 			}),
-			Option.new("test four", {
+			Option.new("Gather the people and try to ensure everyone has enough to pay", {
 				"village_approval": -10
-			}),
-			Option.new("test five", {
-				"village_approval": 10
-			}),
-			Option.new("test six", {
-				"village_approval": 55
 			})
 		]),
 	]
 
 	mid = [
-		Scenario.new("You need to test a scenario!", [
-			Option.new("test one", {
+		Scenario.new("Dear " + GameManager.player_name + ", some of our families can't afford food with the increased taxes this year. If you can spare anything, we would appreciate it very much!", [
+			Option.new("Distribute food from the stores among the poorest villagers", {
 				"village_approval": 5
 			}),
-			Option.new("test two", {
+			Option.new("Tell the villagers to sort it out amongst themselves", {
 				"village_approval": -1
 			}),
-			Option.new("test three", {
+			Option.new("Offer some food at the shrine and ask the goddess for help", {
 				"village_approval": 50
 			}),
-			Option.new("test four", {
+			Option.new("Ignore the message, as resources are scarce", {
 				"village_approval": -10
-			}),
-			Option.new("test five", {
-				"village_approval": 10
-			}),
-			Option.new("test six", {
-				"village_approval": 55
 			})
 		]),
-		Scenario.new("You need to test a scenaritwo!", [
-			Option.new("test one", {
+		Scenario.new("As I'm sure you know, taxes were due three days ago, and I'm still missing some contributions from your village. I trust you know your duty here.", [
+			Option.new("Go after everyone who has not paid and demand they do so", {
 				"village_approval": 5
 			}),
-			Option.new("test two", {
+			Option.new("Attempt to pay the remaining balance from your personal coin", {
 				"village_approval": -1
 			}),
-			Option.new("test three", {
+			Option.new("Ignore the missive entirely", {
 				"village_approval": 50
 			}),
-			Option.new("test four", {
+			Option.new("Send a message telling the king your people have paid enough", {
 				"village_approval": -10
-			}),
-			Option.new("test five", {
-				"village_approval": 10
-			}),
-			Option.new("test six", {
-				"village_approval": 55
 			})
 		]),
-		Scenario.new("You need to test a scenario 3!", [
-			Option.new("test one", {
+		Scenario.new("Dear " + GameManager.player_name + ", we would like to hold a ceremony in the square to honour the forest goddess. We ask your permission, and perhaps your blessing? -Village Elders", [
+			Option.new("Tell them no", {
 				"village_approval": 5
 			}),
-			Option.new("test two", {
+			Option.new("Allow the ceremony but discourage people from attending", {
 				"village_approval": -1
 			}),
-			Option.new("test three", {
+			Option.new("Encourage the whole village to attend the ceremony", {
 				"village_approval": 50
 			}),
-			Option.new("test four", {
+			Option.new("Attend the ceremony yourself and bring a personal offering", {
 				"village_approval": -10
-			}),
-			Option.new("test five", {
-				"village_approval": 10
-			}),
-			Option.new("test six", {
-				"village_approval": 55
 			})
 		]),
 	]
 
 	late = [
-		Scenario.new("You need to test a scenario!", [
-			Option.new("test one", {
+		Scenario.new("I have heard rumours of old god worship among the people of your village. This will not stand in my kingdom! You are to ban such practices immediately.", [
+			Option.new("Announce that worship of the forest goddess is now banned", {
 				"village_approval": 5
 			}),
-			Option.new("test two", {
+			Option.new("Ignore the king's missive", {
 				"village_approval": -1
 			}),
-			Option.new("test three", {
+			Option.new("Gather more offerings for the forest goddess", {
 				"village_approval": 50
 			}),
-			Option.new("test four", {
+			Option.new("Tell the villagers to keep their worship quiet", {
 				"village_approval": -10
-			}),
-			Option.new("test five", {
-				"village_approval": 10
-			}),
-			Option.new("test six", {
-				"village_approval": 55
 			})
 		]),
-		Scenario.new("You need to test a scenaritwo!", [
-			Option.new("test one", {
+		Scenario.new("A merchant is passing through. He claims to have potions that will warm us all through the winter. He's offering a great deal on bulk orders!", [
+			Option.new("Spend all of the village's remaining funds on potions", {
 				"village_approval": 5
 			}),
-			Option.new("test two", {
+			Option.new("Assure the villagers that the merchant is only selling lies", {
 				"village_approval": -1
 			}),
-			Option.new("test three", {
+			Option.new("buy a small number, just in case", {
 				"village_approval": 50
 			}),
-			Option.new("test four", {
+			Option.new("Find the merchant and chase him out of town with a broom", {
 				"village_approval": -10
-			}),
-			Option.new("test five", {
-				"village_approval": 10
-			}),
-			Option.new("test six", {
-				"village_approval": 55
 			})
 		]),
-		Scenario.new("You need to test a scenario 3!", [
-			Option.new("test one", {
+		Scenario.new("I can grant you protection through the winter, if you are willing to put your trust in me. One last offering is all I ask. -????", [
+			Option.new("Ignore the strange message", {
 				"village_approval": 5
 			}),
-			Option.new("test two", {
+			Option.new("Hold another ceremony in the village square", {
 				"village_approval": -1
 			}),
-			Option.new("test three", {
+			Option.new("Don't mention it to the villagers but make a private offering", {
 				"village_approval": 50
 			}),
-			Option.new("test four", {
+			Option.new("Remind the villagers that old god worship is considered treason", {
 				"village_approval": -10
-			}),
-			Option.new("test five", {
-				"village_approval": 10
-			}),
-			Option.new("test six", {
-				"village_approval": 55
 			})
 		]),
 	]

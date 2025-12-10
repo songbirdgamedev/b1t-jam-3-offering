@@ -22,3 +22,7 @@ func change_name(n: String) -> void:
 	player_name = n
 	TextManager.set_text()
 	ScenarioManager.set_scenarios()
+
+
+func calculate_winter() -> void:
+	stats["winter_intensity"] = stats["deity_approval"] * 2 + stats["king_approval"] + stats["village_approval"] / 4

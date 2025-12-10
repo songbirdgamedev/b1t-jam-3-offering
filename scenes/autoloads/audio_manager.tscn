@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://ctbrd0cb73wce"]
+[gd_scene load_steps=3 format=3 uid="uid://ctbrd0cb73wce"]
 
 [ext_resource type="Script" uid="uid://bf1ncoifbei14" path="res://scripts/autoloads/audio_manager.gd" id="1_f8yfr"]
+[ext_resource type="AudioStream" uid="uid://tqfpjxfb6d2n" path="res://assets/music/2020-02-22_-_Relaxing_Green_Nature_-_David_Fesliyan.mp3" id="2_f8yfr"]
 
 [node name="AudioManager" type="Node"]
 script = ExtResource("1_f8yfr")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_f8yfr")

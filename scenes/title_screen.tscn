@@ -30,6 +30,7 @@ vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="OptionsButton" type="Button" parent="CanvasLayer"]
+visible = false
 offset_left = 96.0
 offset_top = 140.0
 offset_right = 224.0
