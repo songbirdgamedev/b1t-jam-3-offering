@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://fe347kyj24xi"]
 
 [ext_resource type="Script" uid="uid://d6u0p8lvdojl" path="res://scripts/decision_button.gd" id="1_1u7lj"]
-[ext_resource type="FontFile" uid="uid://d2avfcn8sbdrt" path="res://assets/Kenney Mini Square.ttf" id="1_pq7yr"]
+[ext_resource type="FontFile" uid="uid://d2avfcn8sbdrt" path="res://assets/fonts/Kenney Mini Square.ttf" id="1_pq7yr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1u7lj"]
 content_margin_left = 2.0

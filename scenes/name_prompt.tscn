@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://bank4v6qyjhcx"]
 
-[ext_resource type="FontFile" uid="uid://d2avfcn8sbdrt" path="res://assets/Kenney Mini Square.ttf" id="1_0omd3"]
+[ext_resource type="FontFile" uid="uid://d2avfcn8sbdrt" path="res://assets/fonts/Kenney Mini Square.ttf" id="1_0omd3"]
 [ext_resource type="Shader" uid="uid://d0g20hi08muw6" path="res://resources/1-bit.gdshader" id="1_0xlp0"]
 [ext_resource type="Script" uid="uid://w35l2pqc418c" path="res://scripts/name_prompt.gd" id="1_fhrbs"]
 

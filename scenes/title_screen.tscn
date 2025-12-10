@@ -2,7 +2,7 @@
 
 [ext_resource type="Shader" uid="uid://d0g20hi08muw6" path="res://resources/1-bit.gdshader" id="1_fgkus"]
 [ext_resource type="Script" uid="uid://fh10wpwypodi" path="res://scripts/title_screen.gd" id="1_mgrm8"]
-[ext_resource type="FontFile" uid="uid://d2avfcn8sbdrt" path="res://assets/Kenney Mini Square.ttf" id="1_s4lrb"]
+[ext_resource type="FontFile" uid="uid://d2avfcn8sbdrt" path="res://assets/fonts/Kenney Mini Square.ttf" id="1_s4lrb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sa3yf"]
 shader = ExtResource("1_fgkus")
